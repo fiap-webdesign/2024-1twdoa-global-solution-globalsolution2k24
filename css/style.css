@@ -6,7 +6,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-
   --indigo: #6610f2;
   --purple: #6f42c1;
   --pink: #e83e8c;
@@ -276,12 +275,6 @@ select {
   word-wrap: normal;
 }
 
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  -webkit-appearance: button;
-}
 
 button:not(:disabled),
 [type="button"]:not(:disabled),
@@ -345,7 +338,6 @@ progress {
 
 [type="search"] {
   outline-offset: -2px;
-  -webkit-appearance: none;
 }
 
 [type="search"]::-webkit-search-decoration {
