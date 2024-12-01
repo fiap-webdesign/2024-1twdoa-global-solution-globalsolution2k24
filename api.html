@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Eco Watts</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <!-- Favicon -->
+    <link href="img/ECO WATTS.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+     <!-- Font Awesome -->
+     <link
+     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+     rel="stylesheet"
+   />
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="api.css">
+  </head>
+
+  <body data-spy="scroll" data-target=".navbar" data-offset="51"
+  >
+  
+    <!-- Navbar Start -->
+    <nav
+    class="navbar fixed-top shadow-sm navbar-expand-lg navbar-dark py-1 py-lg-0 px-lg-5"
+    style="background-color: #15874c;"
+  >
+ 
+      <button
+        type="button"
+        class="navbar-toggler"
+        data-toggle="collapse"
+        data-target="#navbarCollapse"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse justify-content-between"
+        id="navbarCollapse"
+      >
+        <div class="navbar-nav ml-auto py-0">
+          <a href="index.html" class="nav-item nav-link active">Home</a>
+          <a href="index.html" class="nav-item nav-link">Sobre</a>
+          <a href="index.html" class="nav-item nav-link">Serviços</a>
+          <a href="index.html" class="nav-item nav-link">Projeto</a>
+        </div>
+        <a
+          href="index.html"
+          class="navbar-brand px-4 mx-3 d-none d-lg-block"
+        >
+        <h1 class="display-5 m-0" style="background-color: #158737; color: white !important;">ECO WATTS</h1>
+        </a>
+        <div class="navbar-nav mr-auto py-0">
+          <a href="index.html" class="nav-item nav-link">Time</a>
+          <a href="index.html" class="nav-item nav-link">FAQs</a>
+          <a href="index.html" class="nav-item nav-link">Clientes</a>
+          <a href="index.html" class="nav-item nav-link">Contato</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Conteúdo da página -->
+    <div class="container" style="margin-top: 100px;">
+      <h1>Calculadora de Energia Solar</h1>
+      <p>Calcule o potencial de geração de energia solar na sua região.</p>
+
+      <input id="latitude" type="text" placeholder="Latitude" />
+      <input id="longitude" type="text" placeholder="Longitude" />
+      <button onclick="fetchSolarData()">Calcular</button>
+
+      <div id="results" class="results"></div>
+    </div>
+
+    <!-- jQuery e Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script -->
+    <script>
+      function fetchSolarData() {
+        const lat = document.getElementById("latitude").value;
+        const lon = document.getElementById("longitude").value;
+
+        if (!lat || !lon) {
+          alert("Por favor, insira a latitude e longitude.");
+          return;
+        }
+
+        const apiKey = "JRi1wTDGEB5KR6wK0uXLrkhUxzVHcGbZTmg6GUyF";
+        const url = `https://developer.nrel.gov/api/pvwatts/v8.json?api_key=${apiKey}&lat=${lat}&lon=${lon}&system_capacity=4&module_type=1&losses=10&array_type=1&tilt=20&azimuth=180`;
+
+        fetch(url)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            alert(`A energia estimada é: ${data.outputs.ac_annual} kWh por ano.`);
+          })
+          .catch((error) => console.error("Erro ao buscar os dados:", error));
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <div class="img">
+      <img
+      class="img-fluid"
+      src="img/ECO WATTS.png"
+      alt=""
+    />
+    </div>
+
+    <div
+      class="container-fluid py-5 px-sm-3 px-lg-5 " style="background-color: #15874c;"
+      style="margin-top: 90px"
+    >
+      <div class="row pt-5">
+        <div class="col-12 mb-4 px-4">
+          <div
+            class="row mb-5 p-4"
+            style="background: rgba(256, 256, 256, 0.05)"
+          >
+            <div class="col-md-4">
+              <div class="text-md-center">
+                <h5
+                  class="text-primary text-uppercase mb-2"
+                  style="letter-spacing: 5px"
+                >
+                  Escritório
+                </h5>
+                <p class="mb-4 m-md-0">
+                  Av. Paulista, 1106 - 7º andar - Cerqueira César São Paulo/SP.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="text-md-center">
+                <h5
+                  class="text-primary text-uppercase mb-2"
+                  style="letter-spacing: 5px"
+                >
+                  Email
+                </h5>
+                <p class="mb-4 m-md-0">ecowatts@gmail.com</p>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="text-md-center">
+                <h5
+                  class="text-primary text-uppercase mb-2"
+                  style="letter-spacing: 5px"
+                >
+                  Telefone
+                </h5>
+                <p class="m-0">+55 4002-8922 <br>+55 6989-5452 <br>+55 11 9874-2406</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 col-md-12">
+          <div class="row">
+            <div class="col-md-6 mb-5">
+              <!-- <p>
+                Et et amet ut elitr ipsum sit dolor dolor dolore. Sit accusam
+                elitr ut diam sit rebum. Eirmod duo kasd diam vero labore sea,
+                est et et lorem ut at erat, gubergren ipsum et ipsum elitr et
+                rebum rebum
+              </p> -->
+              <div class="d-flex justify-content-start mt-4">
+                <a
+                  class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+                  href="#"
+                  ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+                  href="#"
+                  ><i class="fab fa-facebook-f"></i
+                ></a>
+                <a
+                  class="btn btn-lg btn-outline-light btn-lg-square mr-2"
+                  href="#"
+                  ><i class="fab fa-linkedin-in"></i
+                ></a>
+                <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+            <div class="col-md-6 mb-5">
+              <h5
+                class="text-primary text-uppercase mb-4"
+                style="letter-spacing: 5px"
+              >
+               ÁREAS
+              </h5>
+              <div class="d-flex flex-column justify-content-start">
+                <a class="text-white btn-scroll mb-2" href="#service"
+                  ><i class="fa fa-angle-right mr-2"></i>Energia solar</a
+                >
+                <a class="text-white btn-scroll mb-2" href="#service"
+                  ><i class="fa fa-angle-right mr-2"></i>Instalações</a
+                >
+                <a class="text-white btn-scroll mb-2" href="#service"
+                  ><i class="fa fa-angle-right mr-2"></i>Clientes</a
+                >
+                <a class="text-white btn-scroll mb-2" href="#service"
+                  ><i class="fa fa-angle-right mr-2"></i>Sobre</a
+                >
+                <a class="text-white btn-scroll" href="#service"
+                  ><i class="fa fa-angle-right mr-2"></i>Time</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-12 mb-5">
+          <h5
+            class="text-primary text-uppercase mb-4"
+            style="letter-spacing: 5px"
+          >
+            Newsletter
+          </h5>
+          <p>
+            Esta newsletter está em manutenção. Avisaremos quando as respostas forem armazenadas.
+          </p>
+          <div class="w-100">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control border-light"
+                style="padding: 30px"
+                placeholder="Seu endereço de email"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-primary px-4">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="container-fluid bg-dark text-white text-center border-top py-4 px-sm-3 px-md-5"
+      style="border-color: rgba(256, 256, 256, 0.05)"
+    >
+      <p class="m-0 text-white">
+        &copy;Todos os direitos reservados. Feito por 
+       <strong>Ana Clara e Milena</strong>
+      </p>
+      </p>
+    </div>
+
+  </body>
+</html>
